@@ -6,14 +6,16 @@ namespace inheritance
     sealed class TwoDim : Parent
     {
         int m;
+        int n;
+        
+        private int[,] array;
 
-        int[,] array;
-
-        public TwoDim(int n, int m, bool entry = false) : base(n, entry)
+        public TwoDim(int n, int m, bool entry = false) : base(entry)
         {
             array = new int[n, m];
 
             this.m = m;
+            this.n = n;
 
             if (!entry)
             {

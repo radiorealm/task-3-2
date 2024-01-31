@@ -4,14 +4,20 @@ namespace inheritance
 {
     sealed class OneDim : Parent
     {
-        int[] array;
+        private int[] array;
 
-        public int[] Array
+        public int Length
         {
-            get { return array; }
+            get { return array.Length; }
         }
 
-        public OneDim(int n, bool entry = false) : base(n, entry)
+        public int this[int index]
+        {
+            get { return array[index]; }
+            set { array[index] = value; }
+        }
+
+        public OneDim(int n, bool entry = false) : base(entry)
         {
             array = new int[n];
 
@@ -27,8 +33,7 @@ namespace inheritance
 
         public override void RndEntry()
         {
-            ;
-            for (int i = 0; i < n; i++)
+            for (int i = 0; i < array.Length; i++)
             {
                 array[i] = rnd.Next(1, 100);
             }
@@ -37,7 +42,7 @@ namespace inheritance
         {
             Console.WriteLine("Введите значения массива вручную");
 
-            for (int i = 0; i < n; i++)
+            for (int i = 0; i < array.Length; i++)
             {
                 array[i] = int.Parse(Console.ReadLine());
             }

@@ -6,13 +6,10 @@ namespace inheritance
     {
         protected static Random rnd = new Random();
 
-        protected int n;
-
         protected bool entry = false;
 
-        protected Parent(int n, bool entry = false)
+        protected Parent(bool entry = false)
         {
-            this.n = n;
             this.entry = entry;
         }
 

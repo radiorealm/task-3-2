@@ -4,9 +4,9 @@ namespace inheritance
 {
     sealed class JaggedDim : Parent
     {
-        OneDim[] array;
+        private OneDim[] array;
 
-        public JaggedDim(int n, bool entry = false) : base(n, entry)
+        public JaggedDim(int n, bool entry = false) : base(entry)
         {
             array = new OneDim[n];
 
@@ -24,7 +24,7 @@ namespace inheritance
         {
             OneDim massive;
 
-            for (int i = 0; i < n; i++)
+            for (int i = 0; i < array.Length; i++)
             {
                 massive = new OneDim(rnd.Next(1, 10));
                 array[i] = massive;
@@ -35,7 +35,7 @@ namespace inheritance
         {
             OneDim massive;
 
-            for (int i = 0; i < n; i++)
+            for (int i = 0; i < array.Length; i++)
             {
                 Console.WriteLine($"Введите m для массива {i + 1}");
 
@@ -46,9 +46,9 @@ namespace inheritance
 
         public override void Print()
         {
-            foreach (OneDim m in array)
+            foreach (OneDim massive in array)
             {
-                m.Print();
+                massive.Print();
             }
         }
 
@@ -59,9 +59,9 @@ namespace inheritance
 
             foreach (OneDim el in array)
             {
-                for (int j = 0; j < (el.Array).Length; j++)
+                for (int j = 0; j < el.Length; j++)
                 {
-                    summa += (el.Array)[j];
+                    summa += el[j];
                     num++;
                 }
             }
