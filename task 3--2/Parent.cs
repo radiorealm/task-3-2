@@ -20,6 +20,7 @@ namespace inheritance
         public abstract void Print();
 
         public abstract double AverageValue();
+        
     }
 
 }
